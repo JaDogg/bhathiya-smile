@@ -16,8 +16,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 /**
- * MainActivity with AppCompat ActionBar
- * @author Bhathi
+ * SmileRPG main activity with android-support-v7-appcompat action-bar
+ * 
+ * @author bhathiya
  *
  */
 public class MainActivity extends ActionBarActivity implements
@@ -34,7 +35,6 @@ public class MainActivity extends ActionBarActivity implements
 
 		final ActionBar actionBar = getSupportActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-		
 
 		mSectionsPagerAdapter = new SectionsPagerAdapter(
 				getSupportFragmentManager());
@@ -49,7 +49,7 @@ public class MainActivity extends ActionBarActivity implements
 						actionBar.setSelectedNavigationItem(position);
 					}
 				});
-
+		
 		for (int i = 0; i < mSectionsPagerAdapter.getCount(); i++) {
 			actionBar.addTab(actionBar.newTab()
 					.setText(mSectionsPagerAdapter.getPageTitle(i))
@@ -59,15 +59,18 @@ public class MainActivity extends ActionBarActivity implements
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.main, menu);
+		getMenuInflater().inflate(R.menu.main, menu); //create menu
 		return true;
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		int id = item.getItemId();
-		if (id == R.id.action_add_task) {
-			showNewTask();
+		int position = mViewPager.getCurrentItem();
+		if (id == R.id.action_add_task) { //add task menu item
+			if(position==0){
+				showNewTask();
+			}
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
@@ -89,16 +92,18 @@ public class MainActivity extends ActionBarActivity implements
 	public void onTabReselected(ActionBar.Tab tab,
 			FragmentTransaction fragmentTransaction) {
 	}
-	
+
 	void showNewTask() {
 		Intent intent = new Intent(MainActivity.this, NewTaskFragment.class);
-        startActivity(intent);
+		startActivity(intent);
 	}
+
 	// ===============================================================================================
 	/**
-	 * Handle Fragment for each Page
+	 * Handle Fragment for each of the tabs
+	 * 
 	 * @author Bhathi
-	 *
+	 * 
 	 */
 	public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
