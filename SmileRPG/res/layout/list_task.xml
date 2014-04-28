@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/list_item_background" >
+
+    <TextView
+        android:id="@+id/txtTaskType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Small Text"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/txtTaskName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/txtTaskType"
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        tools:ignore="HardcodedText" />
+
+    <ImageView
+        android:id="@+id/imgPhysical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/txtTaskName"
+        android:src="@drawable/task_physical"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/imgMental"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imgPhysical"
+        android:layout_toRightOf="@+id/imgPhysical"
+        android:src="@drawable/task_mental"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/imgSchool"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imgMental"
+        android:layout_toRightOf="@+id/imgMental"
+        android:src="@drawable/task_work"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/imgHouse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtTaskName"
+        android:layout_toRightOf="@+id/imgSchool"
+        android:src="@drawable/task_house"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/imgSocial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imgHouse"
+        android:layout_toRightOf="@+id/imgHouse"
+        android:src="@drawable/task_social"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/txtLstPhysical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/imgPhysical"
+        android:layout_below="@+id/imgPhysical"
+        android:gravity="center"
+        android:text="+10"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/txtLstMental"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imgMental"
+        android:layout_alignRight="@+id/imgMental"
+        android:layout_below="@+id/imgMental"
+        android:gravity="center"
+        android:text="+1"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/txtLstHouse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txtLstSchool"
+        android:layout_alignBottom="@+id/txtLstSchool"
+        android:layout_alignLeft="@+id/imgHouse"
+        android:layout_alignRight="@+id/imgHouse"
+        android:gravity="center"
+        android:text="+5"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/txtLstSocial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txtLstHouse"
+        android:layout_alignBottom="@+id/txtLstHouse"
+        android:layout_alignLeft="@+id/imgSocial"
+        android:layout_alignRight="@+id/imgSocial"
+        android:gravity="center"
+        android:text="-100"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/txtLstSchool"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txtLstMental"
+        android:layout_alignBottom="@+id/txtLstMental"
+        android:layout_alignLeft="@+id/imgSchool"
+        android:layout_alignRight="@+id/imgSchool"
+        android:gravity="center"
+        android:text="+100"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        tools:ignore="HardcodedText" />
+
+</RelativeLayout>
