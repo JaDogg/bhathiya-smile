@@ -1,17 +1,25 @@
 package org.bhathiya.smilerpg.util;
 
+
+
 public class TaskDetails {
 	
-	//private TaskType type;
+	private long id;
 	
-	private String name;
+	private String title;
+	private String subTitle;
+		
+	private int gainPhysical;
+	private int gainMental;
+	private int gainSchool;
+	private int gainHouse;
+	private int gainSocial;
 	
-	private int amountOfFood;
-	private int amountOfWater;
-	private int amountOfGold;
-	private int amountOfWood;
-	private int amountOfRock;
+	private int reward;
 	
 	private boolean isTemporary;
 
+	
+
+	
 }
