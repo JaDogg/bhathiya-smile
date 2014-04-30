@@ -14,10 +14,10 @@ import android.view.MenuItem;
  * @author Bhathi
  * 
  */
-public class NewTaskFragment extends ActionBarActivity {
+public class NewTaskActivity extends ActionBarActivity {
 
-	static NewTaskFragment newInstance() {
-		NewTaskFragment f = new NewTaskFragment();
+	static NewTaskActivity newInstance() {
+		NewTaskActivity f = new NewTaskActivity();
 		return f;
 	}
 

@@ -94,7 +94,7 @@ public class MainActivity extends ActionBarActivity implements
 	}
 
 	void showNewTask() {
-		Intent intent = new Intent(MainActivity.this, NewTaskFragment.class);
+		Intent intent = new Intent(MainActivity.this, NewTaskActivity.class);
 		startActivity(intent);
 	}
 

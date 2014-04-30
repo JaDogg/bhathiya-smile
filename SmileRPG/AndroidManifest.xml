@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="org.bhathiya.smilerpg.NewTaskFragment"
+            android:name="org.bhathiya.smilerpg.NewTaskActivity"
             android:label="@string/activity_lbl_new_task" >
         </activity>
     </application>
