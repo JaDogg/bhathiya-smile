@@ -1,5 +1,8 @@
 package org.bhathiya.smilerpg;
 
+import org.bhathiya.smilerpg.db.DataAccess;
+import org.bhathiya.smilerpg.db.TaskDetails;
+
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.content.Intent;
@@ -34,6 +37,9 @@ public class NewTaskActivity extends ActionBarActivity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case android.R.id.home:
+			 DataAccess d = new DataAccess(getApplicationContext());
+			 d.open();
+			 d.createTask(new TaskDetails("hello"));
 			// This is called when the Home (Up) button is pressed in the action
 			// bar.
 			// Create a simple intent that starts the hierarchical parent

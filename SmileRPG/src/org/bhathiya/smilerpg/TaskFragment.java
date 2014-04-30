@@ -3,6 +3,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.bhathiya.smilerpg.db.DataAccess;
+
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -38,7 +40,7 @@ public class TaskFragment extends Fragment {
 				false);
 		ListView listView = (ListView) rootView.findViewById(R.id.lstTasks);
 		
-		TasksArrayAdapter adapter = new TasksArrayAdapter(rootView.getContext(), new ArrayList<String>());
+		TasksArrayAdapter adapter = new TasksArrayAdapter(rootView.getContext(),new DataAccess(rootView.getContext()).getTasksCursor(),true);
 		listView.setAdapter((ListAdapter) adapter);
 		return rootView;
 	}

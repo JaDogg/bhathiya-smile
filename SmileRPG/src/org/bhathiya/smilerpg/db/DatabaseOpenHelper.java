@@ -2,7 +2,6 @@ package org.bhathiya.smilerpg.db;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 
 /**
@@ -10,7 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
  * @author bhathiya
  *
  */
-public class SmileDBOpenHelper extends SQLiteOpenHelper {
+public class DatabaseOpenHelper extends SQLiteOpenHelper {
 		
 	  public static final String TABLE_TASKS = "tasks";
 	  public static final String TABLE_REWARDS = "rewards";
@@ -39,16 +38,15 @@ public class SmileDBOpenHelper extends SQLiteOpenHelper {
 	  private static final String CREATE_TABLE_TASK = "CREATE TABLE "
 			  + TABLE_TASKS + "(" + COLUMN_ID
 			  + " integer primary key autoincrement, " + COLUMN_TITLE
-			  + " text not null, " + COLUMN_SUBTITLE
-			  + " text not null, " + COLUMN_GPHYSICAL
-			  + " integer not null, " + COLUMN_GPHYSICAL
-			  + " integer not null, " + COLUMN_GMENTAL
-			  + " integer not null, " + COLUMN_GSCHOOL
-			  + " integer not null, " + COLUMN_GHOUSE
-			  + " integer not null, " + COLUMN_GSOCIAL
-			  + " integer not null, " + COLUMN_REWARD
-			  + " integer not null, " + COLUMN_TEMP
-			  + " integer not null);";
+			  + " text    , " + COLUMN_SUBTITLE
+			  + " text    , "  + COLUMN_GPHYSICAL
+			  + " integer , " + COLUMN_GMENTAL
+			  + " integer , " + COLUMN_GSCHOOL
+			  + " integer , " + COLUMN_GHOUSE
+			  + " integer , " + COLUMN_GSOCIAL
+			  + " integer , " + COLUMN_REWARD
+			  + " integer , " + COLUMN_TEMP
+			  + " integer );";
 	  
 	  private static final String CREATE_TABLE_REWARD = "CREATE TABLE "
 			  + TABLE_REWARDS + "(" + COLUMN_ID
@@ -61,7 +59,7 @@ public class SmileDBOpenHelper extends SQLiteOpenHelper {
 	 * Default Constructor  
 	 * @param context Context
 	 */
-	public SmileDBOpenHelper(Context context) {
+	public DatabaseOpenHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
 	}
 
@@ -70,14 +68,16 @@ public class SmileDBOpenHelper extends SQLiteOpenHelper {
 	public void onCreate(SQLiteDatabase db) {
 		db.execSQL(CREATE_TABLE_TASK);
 		db.execSQL(CREATE_TABLE_REWARD);	
+		db.execSQL("INSERT INTO " + TABLE_TASKS + " ("+COLUMN_TITLE+") VALUES ('First Taska');");
+		db.execSQL("INSERT INTO " + TABLE_TASKS + " ("+COLUMN_TITLE+") VALUES ('Second Taska');");
 
 	}
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 		// re create the database
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_TASKS);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_REWARDS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_TASKS + ";");
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_REWARDS + ";");
         onCreate(db); 
 	}
 

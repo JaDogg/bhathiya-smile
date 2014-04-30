@@ -22,19 +22,10 @@ public class TaskDetails {
 	
 	private int reward;
 	
-	public TaskDetails(long id, String title, String subTitle,
-			int gainPhysical, int gainMental, int gainSchool, int gainHouse,
-			int gainSocial, int reward, boolean isTemporary) {
-		this.id = id;
+	public TaskDetails(String title) {
+
 		this.title = title;
-		this.subTitle = subTitle;
-		this.gainPhysical = gainPhysical;
-		this.gainMental = gainMental;
-		this.gainSchool = gainSchool;
-		this.gainHouse = gainHouse;
-		this.gainSocial = gainSocial;
-		this.reward = reward;
-		this.isTemporary = isTemporary;
+
 	}
 
 	private boolean isTemporary;
