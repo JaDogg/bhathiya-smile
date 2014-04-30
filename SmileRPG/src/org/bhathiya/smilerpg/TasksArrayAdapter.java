@@ -1,5 +1,7 @@
 package org.bhathiya.smilerpg;
 
+import java.util.List;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,9 +11,9 @@ import android.widget.TextView;
  
 public class TasksArrayAdapter extends ArrayAdapter<String> {
 	private final Context context;
-	private final String[] values;
+	private final List<String> values;
  
-	public TasksArrayAdapter(Context context, String[] values) {
+	public TasksArrayAdapter(Context context, List<String> values) {
 		super(context, R.layout.list_task, values);
 		this.context = context;
 		this.values = values;
@@ -24,8 +26,8 @@ public class TasksArrayAdapter extends ArrayAdapter<String> {
  
 		View rowView = inflater.inflate(R.layout.list_task, parent, false);
 		TextView textView = (TextView) rowView.findViewById(R.id.txtTaskName);
-		textView.setText(values[position]);
- 
+		textView.setText(values.get(position));
+	
  
 		return rowView;
 	}

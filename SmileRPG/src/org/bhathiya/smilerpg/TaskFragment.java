@@ -1,4 +1,7 @@
 package org.bhathiya.smilerpg;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -18,10 +21,6 @@ public class TaskFragment extends Fragment {
 
 	private static TaskFragment fragment = null;
 	
-	static final String[] FRUITS = new String[] { "Apple", "Avocado", "Banana",
-		"Blueberry", "Coconut", "Durian", "Guava", "Kiwifruit",
-		"Jackfruit", "Mango", "Olive", "Pear", "Sugar-apple" };
-	
 	/**
 	 * @return static instance
 	 */
@@ -38,7 +37,8 @@ public class TaskFragment extends Fragment {
 		View rootView = inflater.inflate(R.layout.fragment_tasks, container,
 				false);
 		ListView listView = (ListView) rootView.findViewById(R.id.lstTasks);
-		TasksArrayAdapter adapter = new TasksArrayAdapter(rootView.getContext(), FRUITS);
+		
+		TasksArrayAdapter adapter = new TasksArrayAdapter(rootView.getContext(), new ArrayList<String>());
 		listView.setAdapter((ListAdapter) adapter);
 		return rootView;
 	}
