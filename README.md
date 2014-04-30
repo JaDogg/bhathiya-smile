@@ -1,6 +1,4 @@
-bhathiya-smile
+SmileRPG
 ==============
 
-SmileRPG
-
-App for self improvement
+An Android app build for self improvement and to learn android platform development.
