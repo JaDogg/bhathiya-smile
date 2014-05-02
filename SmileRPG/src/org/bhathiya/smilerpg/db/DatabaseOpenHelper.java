@@ -13,14 +13,14 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
 		
 	  public static final String TABLE_TASKS = "tasks";
 	  public static final String TABLE_REWARDS = "rewards";
-	  //columns
+	  //columns common
 	  public static final String COLUMN_ID = "_id";
 	  
 	  public static final String COLUMN_TITLE = "title";
 	  public static final String COLUMN_SUBTITLE = "subtitle";
 	  
 	  public static final String COLUMN_TEMP = "istemp";
-	  
+	  //columns TABLE_TASKS
 	  
 	  public static final String COLUMN_GPHYSICAL = "physical";
 	  public static final String COLUMN_GMENTAL = "mental";
@@ -29,9 +29,11 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
 	  public static final String COLUMN_GSOCIAL = "social";
 	  
 	  public static final String COLUMN_REWARD = "reward";
+	  
+	  //columns TABLE_REWARDS
 	  public static final String COLUMN_COST = "cost";
 	  
-	  //--
+	  //---
 	  private static final String DATABASE_NAME = "smile.db";
 	  private static final int DATABASE_VERSION = 1;
 
@@ -57,7 +59,7 @@ public class DatabaseOpenHelper extends SQLiteOpenHelper {
 			  + " integer not null);";
 	/**
 	 * Default Constructor  
-	 * @param context Context
+	 * @param context {@link Context}
 	 */
 	public DatabaseOpenHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);

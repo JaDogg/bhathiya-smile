@@ -1,7 +1,4 @@
 package org.bhathiya.smilerpg;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import org.bhathiya.smilerpg.db.DataAccess;
 
@@ -17,12 +14,12 @@ import android.widget.ListView;
  * Gather Tasks (Tasks) Tab Fragment
  * 
  * @author Bhathi
- *
+ * 
  */
 public class TaskFragment extends Fragment {
 
 	private static TaskFragment fragment = null;
-	
+
 	/**
 	 * @return static instance
 	 */
@@ -39,8 +36,10 @@ public class TaskFragment extends Fragment {
 		View rootView = inflater.inflate(R.layout.fragment_tasks, container,
 				false);
 		ListView listView = (ListView) rootView.findViewById(R.id.lstTasks);
-		
-		TasksArrayAdapter adapter = new TasksArrayAdapter(rootView.getContext(),new DataAccess(rootView.getContext()).getTasksCursor(),true);
+
+		TasksArrayAdapter adapter = new TasksArrayAdapter(
+				rootView.getContext(),
+				new DataAccess(rootView.getContext()).getTasksCursor(), true);
 		listView.setAdapter((ListAdapter) adapter);
 		return rootView;
 	}
