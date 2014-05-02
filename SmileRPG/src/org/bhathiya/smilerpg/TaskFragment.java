@@ -37,7 +37,7 @@ public class TaskFragment extends Fragment {
 				false);
 		ListView listView = (ListView) rootView.findViewById(R.id.lstTasks);
 
-		TasksArrayAdapter adapter = new TasksArrayAdapter(
+		TasksCursorAdapter adapter = new TasksCursorAdapter(
 				rootView.getContext(),
 				new DataAccess(rootView.getContext()).getTasksCursor(), true);
 		listView.setAdapter((ListAdapter) adapter);

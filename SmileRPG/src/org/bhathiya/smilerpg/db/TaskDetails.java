@@ -1,34 +1,31 @@
 package org.bhathiya.smilerpg.db;
 
-
 /**
  * Task Details Model
  * 
  * @author bhathiya
- *
+ * 
  */
 public class TaskDetails {
-	
+
 	private long id;
-	
+
 	private String title;
 	private String subTitle;
-		
+
 	private int gainPhysical;
 	private int gainMental;
 	private int gainSchool;
 	private int gainHouse;
 	private int gainSocial;
-	
+
 	private int reward;
-	
-	public TaskDetails(String title) {
-
-		this.title = title;
-
-	}
-
 	private boolean isTemporary;
+
+	// FIXME : remove this bad constructor
+	public TaskDetails(String title) {
+		this.title = title;
+	}
 
 	public long getId() {
 		return id;
@@ -36,6 +33,10 @@ public class TaskDetails {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+
+	public String getIdAsString() {
+		return String.valueOf(id);
 	}
 
 	public String getTitle() {
@@ -110,7 +111,4 @@ public class TaskDetails {
 		this.isTemporary = isTemporary;
 	}
 
-	
-
-	
 }
