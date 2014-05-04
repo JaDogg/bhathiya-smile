@@ -3,7 +3,7 @@ package org.bhathiya.util;
 import android.annotation.SuppressLint;
 import java.util.Locale;
 
-public class BhathiUtil {
+public class Commons {
 
 	/**
 	 * Convert a given integer to a string always using a sign.
@@ -17,7 +17,7 @@ public class BhathiUtil {
 	 * 
 	 */
 	@SuppressLint("DefaultLocale")
-	public static String intToPlusOrMinusString(int val) {
+	public static String intPlusToStr(int val) {
 		return String.format(Locale.US,"%+d", val);
 	}
 	

@@ -101,9 +101,12 @@ public class DataAccess {
 		db.delete(DatabaseOpenHelper.TABLE_TASKS, "WHERE _id = ?",
 				new String[] { task.getIdAsString() });
 	}
+
 	/**
 	 * Create a {@link TaskDetails} object from cursor
-	 * @param cursor a {@link Cursor}
+	 * 
+	 * @param cursor
+	 *            a {@link Cursor}
 	 * @return {@link TaskDetails}
 	 */
 	public static TaskDetails cursorToTask(Cursor cursor) {
@@ -137,5 +140,67 @@ public class DataAccess {
 		}
 		return db.rawQuery(sql, null);
 	}
+	//---------------------
+	/**
+	 * FIXME : Comment
+	 * @param reward
+	 * @return
+	 */
+	public long insertReward(RewardDetails reward) {
+		ContentValues values = new ContentValues();
+		values.put(DatabaseOpenHelper.COLUMN_TITLE, reward.getTitle());
+		values.put(DatabaseOpenHelper.COLUMN_SUBTITLE, reward.getSubTitle());
+		values.put(DatabaseOpenHelper.COLUMN_COST, reward.getCost());
+		values.put(DatabaseOpenHelper.COLUMN_TEMP, reward.isTemporary());
 
+		long id = db.insert(DatabaseOpenHelper.TABLE_REWARDS, null,values);
+		return id;
+	}
+	/**
+	 * FIXME : Comment
+	 * @param reward
+	 */
+	public void updateReward(RewardDetails reward) {
+		ContentValues values = new ContentValues();
+		values.put(DatabaseOpenHelper.COLUMN_TITLE, reward.getTitle());
+		values.put(DatabaseOpenHelper.COLUMN_SUBTITLE, reward.getSubTitle());
+		values.put(DatabaseOpenHelper.COLUMN_COST, reward.getCost());
+		values.put(DatabaseOpenHelper.COLUMN_TEMP, reward.isTemporary());
+
+		db.update(DatabaseOpenHelper.TABLE_REWARDS, values, "WHERE _id = ?",
+				new String[] { reward.getIdAsString() });
+	}
+	/**
+	 * FIXME : Comment
+	 * @param reward
+	 */
+	public void deleteReward(RewardDetails reward ){
+		db.delete(DatabaseOpenHelper.TABLE_REWARDS, "WHERE _id = ?",
+				new String[] { reward.getIdAsString() });
+	}
+	/**
+	 * FIXME : Comment
+	 * @param cursor
+	 * @return
+	 */
+	public static RewardDetails cursorToReward(Cursor cursor) {
+		RewardDetails reward = new RewardDetails(cursor.getLong(0),
+				cursor.getString(1), cursor.getString(2), cursor.getInt(3),
+				(cursor.getInt(4) != 0)); // FIXME : use constants
+		return reward;
+	}
+
+	/**
+	 * get a cursor for all the rewards
+	 * 
+	 * @return {@link Cursor}
+	 */
+	public Cursor getRewardsCursor() {
+
+		String sql = "SELECT * FROM " + DatabaseOpenHelper.TABLE_REWARDS + ";";
+		if (db == null) {
+			open();
+		}
+		return db.rawQuery(sql, null);
+	}
 }

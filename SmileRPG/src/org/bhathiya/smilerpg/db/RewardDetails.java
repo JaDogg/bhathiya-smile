@@ -64,5 +64,7 @@ public class RewardDetails {
 		this.isTemporary = isTemporary;
 	}
 	
-	
+	public String getIdAsString() {
+		return String.valueOf(id);
+	}
 }

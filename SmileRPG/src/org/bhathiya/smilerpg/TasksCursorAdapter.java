@@ -2,7 +2,7 @@ package org.bhathiya.smilerpg;
 
 import org.bhathiya.smilerpg.db.DataAccess;
 import org.bhathiya.smilerpg.db.TaskDetails;
-import org.bhathiya.util.BhathiUtil;
+import org.bhathiya.util.Commons;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -42,15 +42,15 @@ public class TasksCursorAdapter extends CursorAdapter {
 		TaskDetails task = DataAccess.cursorToTask(cursor);
 		title.setText(task.getTitle());
 		subTitle.setText(task.getSubTitle());
-		gainPhysical.setText(BhathiUtil.intToPlusOrMinusString(task
+		gainPhysical.setText(Commons.intPlusToStr(task
 				.getGainPhysical()));
-		gainMental.setText(BhathiUtil.intToPlusOrMinusString(task
+		gainMental.setText(Commons.intPlusToStr(task
 				.getGainMental()));
-		gainSchool.setText(BhathiUtil.intToPlusOrMinusString(task
+		gainSchool.setText(Commons.intPlusToStr(task
 				.getGainSchool()));
-		gainHouse.setText(BhathiUtil.intToPlusOrMinusString(task
+		gainHouse.setText(Commons.intPlusToStr(task
 				.getGainHouse()));
-		gainSocial.setText(BhathiUtil.intToPlusOrMinusString(task
+		gainSocial.setText(Commons.intPlusToStr(task
 				.getGainSocial()));
 
 	}
